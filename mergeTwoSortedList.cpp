@@ -6,6 +6,7 @@ public:
         ListNode * answer, * temp;
         answer = new ListNode();
         temp = answer;
+        // when not emptey it will continue go because last value is nullptr in which it will then make the statment false;
         while(list1 && list2){
             if(list1->val < list2->val) {
                 temp->next = list1;
