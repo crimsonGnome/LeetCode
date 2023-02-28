@@ -1,0 +1,40 @@
+class Solution {
+public:
+    vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
+        // First loop over the matrix to identify all the 0
+        queue<pair<int,int>> theQueue;
+        vector<int> xdirection {1,0,0,-1};
+        vector<int> ydirection {0,1,-1,0};
+        int columnSize = mat[0].size() 
+        int rowSize = mat.size() 
+        bool NoSwaps_ = true;
+        for(int i = 0; i < mat.size(); ++i){
+            for(int j = 0; j < mat[0].size(); ++j){
+                if(mat[i][j] == 0){
+                    theQueue.push({i,j});
+                } else{
+                    mat[i][j] = -1;
+                }
+            }
+        }
+        // pop queue while there is items in the queue
+        while(!theQueue.empty()){
+            auto temp= theQueue.front();
+            theQueue.pop();
+            for(int i = 0; i < xdirection.size(); ++i){
+                int x =  temp[0] + xdirection[i];
+                int y = temp[1] + ydirection[i];
+                if(0 > x || x >= mat[0].size() || 0 > y|| y >= mat.size()){
+                    continue;
+                }
+                if(mat[x][y] == -1){
+                    mat[x][y] = mat[temp[0]][temp[1]] +1;
+                    theQueue.push({x,y});
+                }
+            }
+        }
+    return mat;
+}
+    
+};
+
