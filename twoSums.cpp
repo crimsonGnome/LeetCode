@@ -18,3 +18,26 @@ public:
        return answer;
     }
 };
+
+// Coming back and redoing new problems 
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> twosum;
+        vector<int> answer;
+
+        for(auto i =0; i < nums.size(); i++){
+            auto search = twosum.find(target -nums[i]);
+            if(search != twosum.end()){
+                answer.push_back(search->second);
+                answer.push_back(i);
+                return answer;
+            } else{
+                twosum[nums[i]] = i;
+            }
+        }
+        return answer;
+    }
+};
+
