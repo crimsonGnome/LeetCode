@@ -22,6 +22,11 @@ public:
 };
 
 int maxProfit(vector<int>& prices) {
+        // loop once through
+        // keep local minimum 
+        // initial idea. Trying to fin local minimums and local maximums 
+        // tracking when slop is increasing.
+        // when slope is decreasing I need to compare minimum 
         int minimum = prices[0];
         int maxProfit = 0;
         for (int i = 1; i < prices.size(); i++){
